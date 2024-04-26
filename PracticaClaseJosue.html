@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo en clase</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        h1 {
+            color: Black;
+            margin-top: 10vh;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        #titulo {
+            text-align: center;
+        }
+        h5{
+            color: rgb(42, 206, 64);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="mb-5" id="titulo">Personajes Favoritos</h1>
+        <div id="Personajes" class="row">
+
+        </div>
+    </div>
+
+    <script>
+        const PersonajesFavoritos = [
+            { nombre: "mora", tipo: "Artista", profesion: "Cantante", deporte: "Asaber"},
+            { nombre: "DuoLingo", tipo: "Personaje", profesion: "Teacher", deporte: "Yo creo que si hace"},
+            { nombre: "Kyrie Irving", tipo: "Deportista", profesion: "Deportista jaja", deporte: "Basketball"},
+            { nombre: "Tokisha", tipo: "Artista", profesion: "Cantante", deporte: "Gym o saber"},
+            { nombre: "Melissa Vargas", tipo: "Deportista", profesion: "Deportista", deporte: "Volley omg"},
+            { nombre: "stephen hawking", tipo: "Ni idea", profesion: "Profesor o matematico", deporte: "yo creo que si hacia deporte"},
+            { nombre: "Cars", tipo: "Pelicula", profesion: "Carreras", deporte: "Carreras era el mcquee"},
+            { nombre: "Santa", tipo: "Asaber", profesion: "Dar regalos", deporte: "Maneja"},
+            { nombre: "Shek", tipo: "Artista", profesion: "Hace polipeliculas", deporte: "Casar princesas"},
+            { nombre: "El que hizo spotify", tipo: "Programador", profesion: "Programadors", deporte: "yo creo que no hace"}
+        ];
+
+
+        function MostrarPersonajes() {
+            const contenedor = document.getElementById("Personajes");
+
+            PersonajesFavoritos.forEach(persona => {
+                const card = document.createElement("div");
+                card.classList.add("col-12");
+
+                card.innerHTML = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${persona.nombre}</h5>
+            <p class="card-text">Tipo: ${persona.tipo}</p>
+            ${persona.profesion ? `<p class="card-text">Profesion: ${persona.profesion}</p>` : ""}
+            ${persona.deporte ? `<p class="card-text">Deporte: ${persona.deporte}</p>` : ""}
+          </div>
+        </div>
+      `;
+
+                contenedor.appendChild(card);
+            });
+        }
+
+
+        document.addEventListener("DOMContentLoaded", MostrarPersonajes);
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
